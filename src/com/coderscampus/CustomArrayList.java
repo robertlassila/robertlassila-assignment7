@@ -39,14 +39,15 @@ public class CustomArrayList<T> implements CustomList<T> {
 			items = Arrays.copyOf(items, (items.length * 2));
 		}
 		
-		if (index < 0 || index >= size) {
+		if (index < 0 || index > size) {
 	        throw new IndexOutOfBoundsException("Index " + index + " is out of bounds for size " + size);
 	    }
 		
 		for (int i = size; i >= index; i--) {
-			items[(i + 1)] = items[i];
+			items[i] = items[(i-1)];
 		}
 		items[index] = item;
+		size++;
 		return true;
 	}
 
@@ -58,8 +59,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 		T removedItem = (T) items[index];
 		items[index] = null;
 		
-		for (int i = index; i <= size-1; i++) {
-			items[i] = items[(i+1)];
+		for (int i = index; i < size-1; i++) {
+			items[i] = items[(i + 1)];
 		}
 		items[size] = null;
 		size--;
