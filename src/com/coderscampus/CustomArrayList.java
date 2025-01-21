@@ -42,9 +42,14 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (index < 0 || index > size) {
 	        throw new IndexOutOfBoundsException("Index " + index + " is out of bounds for size " + size);
 	    }
-		
-		for (int i = size; i >= index; i--) {
-			items[i] = items[(i-1)];
+		if (index > 0) {
+			for (int i = size; i >= index; i--) {
+				items[i] = items[(i-1)];
+			}
+		} else {
+			for (int i = size; i > index; i--) {
+				items[i] = items[(i-1)];
+			}	
 		}
 		items[index] = item;
 		size++;
@@ -59,10 +64,13 @@ public class CustomArrayList<T> implements CustomList<T> {
 		T removedItem = (T) items[index];
 		items[index] = null;
 		
-		for (int i = index; i < size-1; i++) {
-			items[i] = items[(i + 1)];
+		//if chosen index is NOT end of the list
+		if ((index+1) != size) {
+			for (int i = index; i < size-1; i++) {
+				items[i] = items[(i + 1)];
+			}
+			items[size-1] = null;
 		}
-		items[size] = null;
 		size--;
 		return removedItem;
 	}

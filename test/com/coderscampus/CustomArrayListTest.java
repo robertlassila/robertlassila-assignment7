@@ -92,10 +92,12 @@ class CustomArrayListTest {
 			Integer expectedResult = customList.get(14);
 			
 			
+			
 			assertEquals(initialSize, 16);
 			assertEquals(newExpectedSize, 15);
 			assertEquals(expectedResult, 14);
 			assertEquals(removedItem, 15);
+			
 		
 	}
 	@Test
@@ -135,6 +137,71 @@ class CustomArrayListTest {
 	        });
 	   }
 	
+	@Test
+	void should_give_exception_handling_null_value() {
+		 
+		 CustomList<Integer> customList = new CustomArrayList<>();
+	        
+		 for (int i = 0; i <= 15; i++) {
+				customList.add(i);
+			}
+				
+				customList.remove(15);
+			
+		 assertThrows(IndexOutOfBoundsException.class, () -> {
+	            customList.get(15);
+	        });
+		 
+	   }
+	
+	@Test
+	void should_add_item_at_index_zero_of_empty_list() {
+		
+		CustomList<Integer> customList = new CustomArrayList<>();
+		
+		customList.add(0, 35);
+		
+		Integer addedItem = customList.get(0);
+		
+		assertEquals(addedItem, 35);
+	}
+	
+	@Test
+	void should_add_item_at_beginning_of_already_populated_list() {
+		
+		CustomList<Integer> customList = new CustomArrayList<>();
+		
+		for (int i = 0; i <= 15; i++) {
+			customList.add(i);
+		}
+		
+		customList.add(0, 35);
+		
+		Integer indexZero = customList.get(0);
+		Integer indexOne = customList.get(1);
+		
+		assertEquals(indexZero, 35);
+		assertEquals(indexOne, 0);
+		
+	}
+	@Test
+	void should_resize_after_adding_item_at_specific_index() {
+		
+		CustomList<Integer> customList = new CustomArrayList<>();
+		
+		for (int i = 0; i <= 13; i++) {
+			customList.add(i);
+		}
+		
+		Integer sizeBeforeAdd = customList.getSize();
+		
+		customList.add(8, 567);
+		
+		Integer newSize = customList.getSize();
+		
+		assertEquals(sizeBeforeAdd, 14);
+		assertEquals(newSize, 15);
+	}
 	
 	
 
