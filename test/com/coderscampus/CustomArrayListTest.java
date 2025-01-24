@@ -30,8 +30,8 @@ class CustomArrayListTest {
 		Integer expectedSize = customList.getSize();
 		Integer expectedResult = customList.get(1);
 		
-		assertEquals(expectedSize, 12);
-		assertEquals(expectedResult, 2);
+		assertEquals(12, expectedSize);
+		assertEquals(2, expectedResult);
 	}
 	@Test
 	void should_add_one_item_at_end_of_list() {
@@ -49,9 +49,9 @@ class CustomArrayListTest {
 		Integer newExpectedSize = customList.getSize();
 		Integer expectedResult = customList.get(11);
 		
-		assertEquals(initialSize, 11);
-		assertEquals(newExpectedSize, 12);
-		assertEquals(expectedResult, 2);
+		assertEquals(11, initialSize);
+		assertEquals(12, newExpectedSize);
+		assertEquals(2, expectedResult);
 	}
 	@Test
 	void should_remove_one_item_at_already_existing_index() {
@@ -70,10 +70,10 @@ class CustomArrayListTest {
 		Integer expectedResult = customList.get(13);
 		
 		
-		assertEquals(initialSize, 16);
-		assertEquals(newExpectedSize, 15);
-		assertEquals(expectedResult, 14);
-		assertEquals(removedItem, 12);
+		assertEquals(16, initialSize);
+		assertEquals(15, newExpectedSize);
+		assertEquals(14, expectedResult);
+		assertEquals(12, removedItem);
 	}
 
 	@Test
@@ -93,10 +93,10 @@ class CustomArrayListTest {
 			
 			
 			
-			assertEquals(initialSize, 16);
-			assertEquals(newExpectedSize, 15);
-			assertEquals(expectedResult, 14);
-			assertEquals(removedItem, 15);
+			assertEquals(16, initialSize);
+			assertEquals(15, newExpectedSize);
+			assertEquals(14, expectedResult);
+			assertEquals(15, removedItem);
 			
 		
 	}
@@ -116,10 +116,10 @@ class CustomArrayListTest {
 			Integer expectedResult = customList.get(14);
 			
 			
-			assertEquals(initialSize, 16);
-			assertEquals(newExpectedSize, 15);
-			assertEquals(expectedResult, 15);
-			assertEquals(removedItem, 0);
+			assertEquals(16, initialSize);
+			assertEquals(15, newExpectedSize);;
+			assertEquals(15, expectedResult);
+			assertEquals(0, removedItem);
 		
 	}
 	
@@ -163,7 +163,7 @@ class CustomArrayListTest {
 		
 		Integer addedItem = customList.get(0);
 		
-		assertEquals(addedItem, 35);
+		assertEquals(35, addedItem);
 	}
 	
 	@Test
@@ -180,8 +180,8 @@ class CustomArrayListTest {
 		Integer indexZero = customList.get(0);
 		Integer indexOne = customList.get(1);
 		
-		assertEquals(indexZero, 35);
-		assertEquals(indexOne, 0);
+		assertEquals(35, indexZero);
+		assertEquals(0, indexOne);
 		
 	}
 	@Test
@@ -199,8 +199,8 @@ class CustomArrayListTest {
 		
 		Integer newSize = customList.getSize();
 		
-		assertEquals(sizeBeforeAdd, 14);
-		assertEquals(newSize, 15);
+		assertEquals(14, sizeBeforeAdd);
+		assertEquals(15, newSize);
 	}
 	
 	
